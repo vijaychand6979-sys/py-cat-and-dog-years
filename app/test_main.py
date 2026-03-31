@@ -37,3 +37,13 @@ def test_negative_cat_input() -> None:
 def test_negative_dog_input() -> None:
     with pytest.raises(ValueError):
         get_human_age(0, -1)
+
+
+def test_large_cat_input() -> None:
+    with pytest.raises(ValueError):
+        get_human_age(101, 0)
+
+
+def test_large_dog_input() -> None:
+    with pytest.raises(ValueError):
+        get_human_age(0, 101)
