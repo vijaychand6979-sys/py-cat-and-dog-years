@@ -17,3 +17,23 @@ from app.main import get_human_age
 )
 def test_eval(cat_age: int, dog_age: int, expected: list[int]) -> None:
     assert get_human_age(cat_age, dog_age) == expected
+
+
+def test_cat_type_error() -> None:
+    with pytest.raises(TypeError):
+        get_human_age("a", 0)
+
+
+def test_dog_type_error() -> None:
+    with pytest.raises(TypeError):
+        get_human_age(0, "a")
+
+
+def test_negative_cat_input() -> None:
+    with pytest.raises(ValueError):
+        get_human_age(-1, 0)
+
+
+def test_negative_dog_input() -> None:
+    with pytest.raises(ValueError):
+        get_human_age(0, -1)
